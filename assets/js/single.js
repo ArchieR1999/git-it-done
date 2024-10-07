@@ -5,7 +5,6 @@ var limitWarningEl = document.querySelector("#limit-warning");
 var getRepoIssues = function(repo) {
   var apiUrl = "https://api.github.com/repos/" + repo + "/issues?direction=asc";
     
-
   fetch(apiUrl).then(function(response) {
     // request was successful
     if (response.ok) {
@@ -13,7 +12,6 @@ var getRepoIssues = function(repo) {
 
       // pass response data to dom function 
         displayIssues(data);
-          
 
       // check to see if api has paginated issues -Pagination, also known as paging, is the process of dividing a document into discrete pages, either electronic pages or printed pages.
       if (response.headers.get("Link")) {
@@ -96,6 +94,5 @@ var displayWarning = function(repo) {
   // append to container 
   limitWarningEl.appendChild(linkEl);
 };
-
 
 getRepoName();
